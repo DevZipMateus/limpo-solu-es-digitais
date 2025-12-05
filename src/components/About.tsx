@@ -1,4 +1,5 @@
 import { CheckCircle, Award, TrendingUp } from "lucide-react";
+import warehouseImg from "@/assets/products-warehouse.jpg";
 
 const About = () => {
   return (
@@ -48,31 +49,32 @@ const About = () => {
             </div>
           </div>
 
-          {/* Stats Card */}
+          {/* Image */}
           <div className="relative">
-            <div className="bg-secondary rounded-2xl p-8 lg:p-10">
-              <div className="grid grid-cols-2 gap-6">
-                <div className="text-center p-6 bg-background rounded-xl shadow-sm">
-                  <span className="text-4xl lg:text-5xl font-bold text-primary">10+</span>
-                  <p className="text-muted-foreground mt-2">Anos de mercado</p>
-                </div>
-                <div className="text-center p-6 bg-background rounded-xl shadow-sm">
-                  <span className="text-4xl lg:text-5xl font-bold text-primary">500+</span>
-                  <p className="text-muted-foreground mt-2">Clientes satisfeitos</p>
-                </div>
-                <div className="text-center p-6 bg-background rounded-xl shadow-sm">
-                  <span className="text-4xl lg:text-5xl font-bold text-primary">1000+</span>
-                  <p className="text-muted-foreground mt-2">Produtos</p>
-                </div>
-                <div className="text-center p-6 bg-background rounded-xl shadow-sm">
-                  <span className="text-4xl lg:text-5xl font-bold text-primary">24h</span>
-                  <p className="text-muted-foreground mt-2">Prazo médio de entrega</p>
-                </div>
+            <div className="rounded-2xl overflow-hidden shadow-xl">
+              <img 
+                src={warehouseImg} 
+                alt="Estoque da distribuidora LIMPO com produtos de higiene e limpeza"
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            {/* Stats Overlay */}
+            <div className="absolute -bottom-6 left-4 right-4 bg-background rounded-xl shadow-lg p-4 grid grid-cols-3 gap-4">
+              <div className="text-center">
+                <span className="text-2xl font-bold text-primary">10+</span>
+                <p className="text-xs text-muted-foreground">Anos</p>
+              </div>
+              <div className="text-center border-x border-border">
+                <span className="text-2xl font-bold text-primary">500+</span>
+                <p className="text-xs text-muted-foreground">Clientes</p>
+              </div>
+              <div className="text-center">
+                <span className="text-2xl font-bold text-primary">1000+</span>
+                <p className="text-xs text-muted-foreground">Produtos</p>
               </div>
             </div>
             {/* Decorative Element */}
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/10 rounded-full -z-10"></div>
-            <div className="absolute -top-4 -left-4 w-16 h-16 bg-accent/10 rounded-full -z-10"></div>
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full -z-10"></div>
           </div>
         </div>
       </div>
