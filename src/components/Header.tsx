@@ -37,7 +37,7 @@ const Header = () => {
       <nav className="container-custom mx-auto px-4 sm:px-6 md:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <a href="#inicio" className="flex-shrink-0">
-            <img src={logo} alt="LIMPO Soluções em Higiene e Limpeza - Logo" className="h-24 sm:h-12 md:h-14 w-auto" />
+            <img src={logo} alt="LIMPO Soluções em Higiene e Limpeza - Logo" className="h-20 sm:h-12 md:h-14 w-auto" />
           </a>
 
           {/* Desktop Navigation */}
