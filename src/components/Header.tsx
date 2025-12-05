@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
@@ -16,6 +16,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === "/";
 
   useEffect(() => {
@@ -26,17 +27,28 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLinkClick = () => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, anchor: string) => {
+    e.preventDefault();
     setIsMenuOpen(false);
+    
+    if (isHomePage) {
+      const element = document.getElementById(anchor);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate(`/#${anchor}`);
+    }
   };
 
-  const getHref = (anchor: string) => {
-    return isHomePage ? `#${anchor}` : `/#${anchor}`;
-  };
   return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-background"}`}>
       <nav className="container-custom mx-auto px-4 sm:px-6 md:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <a href={getHref("inicio")} className="flex-shrink-0">
+          <a 
+            href="#inicio" 
+            onClick={(e) => handleNavClick(e, "inicio")} 
+            className="flex-shrink-0"
+          >
             <img src={logo} alt="LIMPO Soluções em Higiene e Limpeza - Logo" className="h-20 sm:h-12 md:h-14 w-auto" />
           </a>
 
@@ -44,7 +56,11 @@ const Header = () => {
           <ul className="hidden lg:flex items-center gap-4 xl:gap-8">
             {navLinks.map(link => (
               <li key={link.href}>
-                <a href={getHref(link.href)} className="text-foreground/80 hover:text-primary font-medium transition-colors duration-200 text-xs xl:text-sm uppercase tracking-wide">
+                <a 
+                  href={`#${link.href}`} 
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="text-foreground/80 hover:text-primary font-medium transition-colors duration-200 text-xs xl:text-sm uppercase tracking-wide"
+                >
                   {link.label}
                 </a>
               </li>
@@ -68,13 +84,17 @@ const Header = () => {
             <ul className="flex flex-col py-2 sm:py-4">
               {navLinks.map(link => (
                 <li key={link.href}>
-                  <a href={getHref(link.href)} onClick={handleLinkClick} className="block px-4 sm:px-6 py-2.5 sm:py-3 text-foreground/80 hover:text-primary hover:bg-secondary transition-colors font-medium text-sm">
+                  <a 
+                    href={`#${link.href}`} 
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="block px-4 sm:px-6 py-2.5 sm:py-3 text-foreground/80 hover:text-primary hover:bg-secondary transition-colors font-medium text-sm"
+                  >
                     {link.label}
                   </a>
                 </li>
               ))}
               <li>
-                <Link to="/vitrine" onClick={handleLinkClick} className="block px-4 sm:px-6 py-2.5 sm:py-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-medium text-sm">
+                <Link to="/vitrine" onClick={() => setIsMenuOpen(false)} className="block px-4 sm:px-6 py-2.5 sm:py-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-medium text-sm">
                   Vitrine
                 </Link>
               </li>
