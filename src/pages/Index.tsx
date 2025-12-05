@@ -4,6 +4,7 @@ import BannerCarousel from "@/components/BannerCarousel";
 import About from "@/components/About";
 import Delivery from "@/components/Delivery";
 import Products from "@/components/Products";
+import VitrineSection from "@/components/VitrineSection";
 import Markets from "@/components/Markets";
 import Values from "@/components/Values";
 import Contact from "@/components/Contact";
@@ -20,6 +21,7 @@ const Index = () => {
         <About />
         <Delivery />
         <Products />
+        <VitrineSection />
         <Markets />
         <Values />
         <Contact />
