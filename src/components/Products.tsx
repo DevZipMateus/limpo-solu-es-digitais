@@ -37,8 +37,12 @@ const products = [
 
 const Products = () => {
   return (
-    <section id="produtos" className="section-padding bg-secondary">
-      <div className="container-custom mx-auto px-4 sm:px-6 md:px-8">
+    <section id="produtos" className="section-padding bg-secondary relative overflow-hidden">
+      {/* Background Glass Elements */}
+      <div className="absolute top-20 left-0 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+
+      <div className="container-custom mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
@@ -52,25 +56,26 @@ const Products = () => {
           </p>
         </div>
 
-        {/* Products Grid */}
+        {/* Glass Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {products.map((product) => (
             <div
               key={product.title}
-              className="group bg-background rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              className="group bg-white/70 dark:bg-background/70 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-white/30"
             >
               {/* Product Image */}
-              <div className="h-40 sm:h-48 overflow-hidden">
+              <div className="h-40 sm:h-48 overflow-hidden relative">
                 <img 
                   src={product.image} 
                   alt={`Produtos de ${product.title.toLowerCase()} - LIMPO Distribuidora`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               
               <div className="p-4 sm:p-6">
                 <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary/10 backdrop-blur-sm rounded-lg flex items-center justify-center group-hover:bg-primary transition-colors duration-300 border border-primary/20">
                     <product.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-heading font-bold text-foreground">
@@ -93,13 +98,13 @@ const Products = () => {
           ))}
         </div>
 
-        {/* CTA */}
+        {/* Glass CTA */}
         <div className="text-center mt-8 sm:mt-12">
           <a
             href="https://wa.me/554732480393"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-sm sm:text-base hover:bg-primary/90 transition-all duration-300"
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-sm sm:text-base hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
           >
             Solicitar catálogo completo
           </a>
