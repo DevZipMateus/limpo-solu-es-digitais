@@ -1,5 +1,4 @@
 import { Target, Eye, Heart } from "lucide-react";
-import { useEffect, useState } from "react";
 import valuesBg from "@/assets/values-bg.jpg";
 
 const values = [
@@ -27,25 +26,17 @@ const values = [
 ];
 
 const Values = () => {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <section id="valores" className="section-padding text-accent-foreground relative overflow-hidden bg-accent">
-      {/* Parallax Background Image */}
-      <div 
-        className="absolute -inset-20 bg-cover bg-center bg-no-repeat"
-        style={{ 
-          backgroundImage: `url(${valuesBg})`,
-          transform: `translateY(${(scrollY - 3500) * 0.15}px)`,
-        }}
-      />
-      
+    <section 
+      id="valores" 
+      className="section-padding text-accent-foreground relative overflow-hidden"
+      style={{ 
+        backgroundImage: `url(${valuesBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+      }}
+    >
       {/* Dark Overlay with Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent/90 via-accent/85 to-accent/90"></div>
       
