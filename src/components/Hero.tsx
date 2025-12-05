@@ -1,4 +1,5 @@
-import { Phone } from "lucide-react";
+import { Phone, ShoppingBag } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
@@ -47,12 +48,13 @@ const Hero = () => {
               <Phone size={20} />
               Solicitar orçamento
             </a>
-            <a
-              href="#produtos"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border-2 border-accent-foreground/60 text-accent-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-accent-foreground hover:text-accent transition-all duration-300"
+            <Link
+              to="/vitrine"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-accent-foreground text-accent px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-accent-foreground/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
-              Ver produtos
-            </a>
+              <ShoppingBag size={20} />
+              Ver vitrine
+            </Link>
           </div>
 
           {/* Trust Badges */}
