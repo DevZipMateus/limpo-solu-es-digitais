@@ -1,6 +1,6 @@
 import { Target, Eye, Heart } from "lucide-react";
 import { useEffect, useState } from "react";
-import warehouseImg from "@/assets/products-warehouse.jpg";
+import valuesBg from "@/assets/values-bg.jpg";
 
 const values = [
   {
@@ -41,13 +41,13 @@ const Values = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
         style={{ 
-          backgroundImage: `url(${warehouseImg})`,
+          backgroundImage: `url(${valuesBg})`,
           transform: `translateY(${(scrollY - 3500) * 0.3}px) scale(1.1)`,
         }}
       />
       
       {/* Dark Overlay with Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-accent/95 via-accent/90 to-accent/95"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/90 via-accent/85 to-accent/90"></div>
       
       {/* Glass Floating Elements */}
       <div className="absolute top-20 left-10 w-40 h-40 bg-white/5 backdrop-blur-xl rounded-full border border-white/10 hidden lg:block"></div>
