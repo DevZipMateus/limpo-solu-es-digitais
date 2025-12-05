@@ -1,25 +1,16 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
-const navLinks = [{
-  href: "#inicio",
-  label: "Início"
-}, {
-  href: "#sobre",
-  label: "Sobre"
-}, {
-  href: "#produtos",
-  label: "Produtos"
-}, {
-  href: "#mercados",
-  label: "Mercados"
-}, {
-  href: "#valores",
-  label: "Valores"
-}, {
-  href: "#contato",
-  label: "Contato"
-}];
+
+const navLinks = [
+  { href: "#inicio", label: "Início" },
+  { href: "#sobre", label: "Sobre" },
+  { href: "#produtos", label: "Produtos" },
+  { href: "#mercados", label: "Mercados" },
+  { href: "#valores", label: "Valores" },
+  { href: "#contato", label: "Contato" },
+];
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,11 +33,18 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <ul className="hidden lg:flex items-center gap-4 xl:gap-8">
-            {navLinks.map(link => <li key={link.href}>
+            {navLinks.map(link => (
+              <li key={link.href}>
                 <a href={link.href} className="text-foreground/80 hover:text-primary font-medium transition-colors duration-200 text-xs xl:text-sm uppercase tracking-wide">
                   {link.label}
                 </a>
-              </li>)}
+              </li>
+            ))}
+            <li>
+              <Link to="/vitrine" className="bg-primary text-primary-foreground px-4 py-2 rounded-md font-medium transition-colors duration-200 text-xs xl:text-sm uppercase tracking-wide hover:bg-primary/90">
+                Vitrine
+              </Link>
+            </li>
           </ul>
 
           {/* Mobile Menu Button */}
@@ -56,15 +54,24 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && <div className="lg:hidden absolute top-16 sm:top-20 left-0 right-0 bg-background border-t border-border shadow-lg animate-fade-in">
+        {isMenuOpen && (
+          <div className="lg:hidden absolute top-16 sm:top-20 left-0 right-0 bg-background border-t border-border shadow-lg animate-fade-in">
             <ul className="flex flex-col py-2 sm:py-4">
-              {navLinks.map(link => <li key={link.href}>
+              {navLinks.map(link => (
+                <li key={link.href}>
                   <a href={link.href} onClick={handleLinkClick} className="block px-4 sm:px-6 py-2.5 sm:py-3 text-foreground/80 hover:text-primary hover:bg-secondary transition-colors font-medium text-sm">
                     {link.label}
                   </a>
-                </li>)}
+                </li>
+              ))}
+              <li>
+                <Link to="/vitrine" onClick={handleLinkClick} className="block px-4 sm:px-6 py-2.5 sm:py-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-medium text-sm">
+                  Vitrine
+                </Link>
+              </li>
             </ul>
-          </div>}
+          </div>
+        )}
       </nav>
     </header>;
 };
