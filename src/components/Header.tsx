@@ -37,7 +37,8 @@ const Header = () => {
         element.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      navigate(`/#${anchor}`);
+      // Usar window.location para evitar encoding do #
+      window.location.href = `/#${anchor}`;
     }
   };
 
