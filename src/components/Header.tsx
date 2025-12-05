@@ -35,23 +35,23 @@ const Header = () => {
           : "bg-background"
       }`}
     >
-      <nav className="container-custom mx-auto px-4 md:px-8">
-        <div className="flex items-center justify-between h-20">
+      <nav className="container-custom mx-auto px-4 sm:px-6 md:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           <a href="#inicio" className="flex-shrink-0">
             <img
               src={logo}
               alt="LIMPO Soluções em Higiene e Limpeza - Logo"
-              className="h-14 w-auto"
+              className="h-10 sm:h-12 md:h-14 w-auto"
             />
           </a>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden lg:flex items-center gap-4 xl:gap-8">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-foreground/80 hover:text-primary font-medium transition-colors duration-200 text-sm uppercase tracking-wide"
+                  className="text-foreground/80 hover:text-primary font-medium transition-colors duration-200 text-xs xl:text-sm uppercase tracking-wide"
                 >
                   {link.label}
                 </a>
@@ -62,23 +62,23 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+            className="lg:hidden p-2 text-foreground hover:text-primary transition-colors"
             aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
           >
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-20 left-0 right-0 bg-background border-t border-border shadow-lg animate-fade-in">
-            <ul className="flex flex-col py-4">
+          <div className="lg:hidden absolute top-16 sm:top-20 left-0 right-0 bg-background border-t border-border shadow-lg animate-fade-in">
+            <ul className="flex flex-col py-2 sm:py-4">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
                     onClick={handleLinkClick}
-                    className="block px-6 py-3 text-foreground/80 hover:text-primary hover:bg-secondary transition-colors font-medium"
+                    className="block px-4 sm:px-6 py-2.5 sm:py-3 text-foreground/80 hover:text-primary hover:bg-secondary transition-colors font-medium text-sm"
                   >
                     {link.label}
                   </a>
