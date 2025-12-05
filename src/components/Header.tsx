@@ -42,7 +42,7 @@ const Header = () => {
     }
   };
 
-  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-background"}`}>
+  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "bg-white/80 dark:bg-background/80 backdrop-blur-xl shadow-lg border-b border-white/20" : "bg-background/50 backdrop-blur-sm"}`}>
       <nav className="container-custom mx-auto px-4 sm:px-6 md:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <a 
@@ -67,7 +67,7 @@ const Header = () => {
               </li>
             ))}
             <li>
-              <Link to="/vitrine" className="bg-primary text-primary-foreground px-4 py-2 rounded-md font-medium transition-colors duration-200 text-xs xl:text-sm uppercase tracking-wide hover:bg-primary/90">
+              <Link to="/vitrine" className="bg-primary text-primary-foreground px-4 py-2 rounded-md font-medium transition-all duration-200 text-xs xl:text-sm uppercase tracking-wide hover:bg-primary/90 hover:shadow-lg">
                 Vitrine
               </Link>
             </li>
@@ -79,16 +79,16 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Glass Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-16 sm:top-20 left-0 right-0 bg-background border-t border-border shadow-lg animate-fade-in">
+          <div className="lg:hidden absolute top-16 sm:top-20 left-0 right-0 bg-white/90 dark:bg-background/90 backdrop-blur-xl border-t border-white/20 shadow-2xl animate-fade-in">
             <ul className="flex flex-col py-2 sm:py-4">
               {navLinks.map(link => (
                 <li key={link.href}>
                   <a 
                     href={`#${link.href}`} 
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="block px-4 sm:px-6 py-2.5 sm:py-3 text-foreground/80 hover:text-primary hover:bg-secondary transition-colors font-medium text-sm"
+                    className="block px-4 sm:px-6 py-2.5 sm:py-3 text-foreground/80 hover:text-primary hover:bg-primary/10 transition-colors font-medium text-sm"
                   >
                     {link.label}
                   </a>

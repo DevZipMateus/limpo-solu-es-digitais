@@ -26,8 +26,12 @@ const values = [
 
 const Values = () => {
   return (
-    <section id="valores" className="section-padding bg-accent text-accent-foreground">
-      <div className="container-custom mx-auto px-4 sm:px-6 md:px-8">
+    <section id="valores" className="section-padding bg-accent text-accent-foreground relative overflow-hidden">
+      {/* Background Glass Elements */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl"></div>
+
+      <div className="container-custom mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
@@ -41,14 +45,14 @@ const Values = () => {
           </p>
         </div>
 
-        {/* Values Grid */}
+        {/* Glass Values Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {values.map((value) => (
             <div
               key={value.title}
-              className="bg-accent-foreground/5 backdrop-blur-sm rounded-2xl p-5 sm:p-6 lg:p-8 border border-accent-foreground/10 hover:border-primary/50 transition-all duration-300"
+              className="bg-white/10 backdrop-blur-xl rounded-2xl p-5 sm:p-6 lg:p-8 border border-white/20 hover:border-primary/50 hover:bg-white/15 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-2xl"
             >
-              <div className={`w-12 h-12 sm:w-14 sm:h-14 ${value.color} rounded-xl flex items-center justify-center mb-4 sm:mb-6`}>
+              <div className={`w-12 h-12 sm:w-14 sm:h-14 ${value.color} backdrop-blur-sm rounded-xl flex items-center justify-center mb-4 sm:mb-6 shadow-lg`}>
                 <value.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary-foreground" />
               </div>
               <h3 className="text-lg sm:text-xl font-heading font-bold text-accent-foreground mb-3 sm:mb-4">
