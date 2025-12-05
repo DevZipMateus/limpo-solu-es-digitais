@@ -36,13 +36,13 @@ const Values = () => {
   }, []);
 
   return (
-    <section id="valores" className="section-padding text-accent-foreground relative overflow-hidden">
+    <section id="valores" className="section-padding text-accent-foreground relative overflow-hidden bg-accent">
       {/* Parallax Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
+        className="absolute -inset-20 bg-cover bg-center bg-no-repeat"
         style={{ 
           backgroundImage: `url(${valuesBg})`,
-          transform: `translateY(${(scrollY - 3500) * 0.3}px) scale(1.1)`,
+          transform: `translateY(${(scrollY - 3500) * 0.15}px)`,
         }}
       />
       
