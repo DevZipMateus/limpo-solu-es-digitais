@@ -9,29 +9,81 @@ const products = [
     icon: FileText,
     title: "Papéis",
     description: "Papel higiênico, papel toalha, guardanapos e bobinas em diversas gramaturas e tamanhos.",
-    items: ["Papel higiênico rolão", "Papel toalha interfolhado", "Guardanapos", "Bobinas"],
     image: paperImg,
+    subcategories: [
+      {
+        name: "Papel Higiênico",
+        items: ["Rolão 300m", "Rolão 500m", "Folha dupla", "Folha simples"],
+      },
+      {
+        name: "Papel Toalha",
+        items: ["Interfolhado 2 dobras", "Interfolhado 3 dobras", "Bobina 200m"],
+      },
+      {
+        name: "Guardanapos",
+        items: ["Folha simples", "Folha dupla", "Sachê individual"],
+      },
+    ],
   },
   {
     icon: Beaker,
     title: "Químicos",
     description: "Linha completa de produtos químicos para limpeza pesada, desinfecção e manutenção.",
-    items: ["Desinfetantes", "Detergentes", "Multiusos", "Desincrustantes"],
     image: chemicalImg,
+    subcategories: [
+      {
+        name: "Limpeza Geral",
+        items: ["Detergentes", "Multiusos", "Limpa vidros", "Desengordurantes"],
+      },
+      {
+        name: "Desinfecção",
+        items: ["Desinfetantes", "Álcool 70%", "Sanitizantes", "Bactericidas"],
+      },
+      {
+        name: "Limpeza Pesada",
+        items: ["Desincrustantes", "Removedores", "Cloro", "Ácidos"],
+      },
+    ],
   },
   {
     icon: Package,
     title: "Descartáveis",
     description: "Copos, pratos, talheres, embalagens e diversos itens descartáveis de qualidade.",
-    items: ["Copos descartáveis", "Embalagens", "Luvas", "Sacos de lixo"],
     image: disposableImg,
+    subcategories: [
+      {
+        name: "Copa e Cozinha",
+        items: ["Copos 200ml", "Copos 300ml", "Pratos", "Talheres"],
+      },
+      {
+        name: "Embalagens",
+        items: ["Marmitex", "Potes plásticos", "Sacos de lixo", "Filme PVC"],
+      },
+      {
+        name: "Proteção",
+        items: ["Luvas látex", "Luvas nitrílica", "Toucas", "Máscaras"],
+      },
+    ],
   },
   {
     icon: Wrench,
     title: "Equipamentos",
     description: "Equipamentos profissionais para otimizar a limpeza e manutenção dos ambientes.",
-    items: ["Dispensers", "Carrinhos", "Mops", "Vassouras"],
     image: equipmentImg,
+    subcategories: [
+      {
+        name: "Dispensers",
+        items: ["Papel higiênico", "Papel toalha", "Sabonete líquido", "Álcool gel"],
+      },
+      {
+        name: "Limpeza",
+        items: ["Mops", "Vassouras", "Rodos", "Baldes"],
+      },
+      {
+        name: "Profissional",
+        items: ["Carrinhos", "Lavadoras", "Aspiradores", "Enceradeiras"],
+      },
+    ],
   },
 ];
 
@@ -85,14 +137,25 @@ const Products = () => {
                 <p className="text-muted-foreground text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">
                   {product.description}
                 </p>
-                <ul className="space-y-1.5 sm:space-y-2">
-                  {product.items.map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>
-                      {item}
-                    </li>
+                <div className="space-y-3">
+                  {product.subcategories.map((subcategory) => (
+                    <div key={subcategory.name}>
+                      <h4 className="text-xs font-semibold text-primary mb-1.5 uppercase tracking-wide">
+                        {subcategory.name}
+                      </h4>
+                      <ul className="flex flex-wrap gap-1.5">
+                        {subcategory.items.map((item) => (
+                          <li 
+                            key={item} 
+                            className="text-[10px] sm:text-xs text-muted-foreground bg-muted/50 px-2 py-0.5 rounded-full"
+                          >
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             </div>
           ))}
