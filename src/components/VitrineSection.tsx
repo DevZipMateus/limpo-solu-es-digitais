@@ -6,7 +6,7 @@ const benefits = [
   {
     icon: ShoppingBag,
     title: "Catálogo completo",
-    description: "Mais de 1000 produtos disponíveis para sua empresa",
+    description: "Mais de 2000 produtos disponíveis para sua empresa",
   },
   {
     icon: Truck,
