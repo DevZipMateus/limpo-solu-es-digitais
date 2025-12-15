@@ -93,7 +93,7 @@ const Hero = () => {
               </div>
               <div className="w-px h-10 sm:h-12 bg-white/20 hidden sm:block"></div>
               <div className="flex flex-col items-center min-w-[80px]">
-                <span className="text-2xl sm:text-3xl font-bold text-primary">500+</span>
+                <span className="text-2xl sm:text-3xl font-bold text-primary">10.000+</span>
                 <span className="text-xs sm:text-sm text-accent-foreground/70">Clientes atendidos</span>
               </div>
               <div className="w-px h-10 sm:h-12 bg-white/20 hidden sm:block"></div>
