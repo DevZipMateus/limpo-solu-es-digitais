@@ -69,7 +69,7 @@ const About = () => {
                 <p className="text-[10px] sm:text-xs text-muted-foreground">Anos</p>
               </div>
               <div className="text-center border-x border-border/50">
-                <span className="text-xl sm:text-2xl font-bold text-primary">500+</span>
+                <span className="text-xl sm:text-2xl font-bold text-primary">10.000+</span>
                 <p className="text-[10px] sm:text-xs text-muted-foreground">Clientes</p>
               </div>
               <div className="text-center">
