@@ -50,7 +50,7 @@ const Header = () => {
             onClick={(e) => handleNavClick(e, "inicio")} 
             className="flex-shrink-0"
           >
-            <img src={logo} alt="LIMPO Soluções em Higiene e Limpeza - Logo" className="h-14 sm:h-16 md:h-20 w-auto" />
+            <img src={logo} alt="LIMPO Soluções em Higiene e Limpeza - Logo" className="h-16 sm:h-20 md:h-24 w-auto" />
           </a>
 
           {/* Desktop Navigation */}
